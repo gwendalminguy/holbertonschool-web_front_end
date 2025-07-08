@@ -1,5 +1,5 @@
 html {
 	overscroll-behavior-x: none;
 	overscroll-behavior-y: none;
-	scroll-behavior: auto;
+	scroll-behavior: smooth;
 }
