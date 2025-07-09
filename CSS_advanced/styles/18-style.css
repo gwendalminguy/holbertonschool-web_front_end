@@ -285,7 +285,7 @@ a:active {
 	text-align: center;
 }
 
-.nav.nav-item {
+.nav-item {
 	font-family: var(--nav-item-font-family);
 	font-weight: var(--nav-item-font-weight);
 	font-size: var(--nav-item-font-size);
@@ -294,12 +294,12 @@ a:active {
 	margin: var(--nav-item-margin);
 }
 
-.nav.nav-link {
+.nav-link {
 	display: block;
 	padding: 50% 100%;
 }
 
-.nav.nav-link:hover {
+.nav-link:hover {
 	color: var(--nav-item-link-hover);
 }
 
