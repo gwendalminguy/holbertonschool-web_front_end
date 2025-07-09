@@ -369,7 +369,7 @@ ul.row {
 .row::after {
 	content: none;
 	display: table;
-	clear: both;
+	float: none;
 }
 
 .footer {
