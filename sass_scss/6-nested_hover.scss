@@ -1,0 +1,8 @@
+/* Assigns the text color #FF0000 to 'button' tags and changes the color to #00FF00 on hover. */
+$textColorA: #FF0000;
+$textColorB: #00FF00;
+
+button {
+  color: $textColorA;
+  &:hover {
+    color: $textColorB; }}
