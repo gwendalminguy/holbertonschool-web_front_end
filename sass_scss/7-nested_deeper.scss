@@ -7,5 +7,5 @@ body {
   font-size: $sizeA;
   h1 {
     font-size: $sizeB;
-    .smaller {
+    &.smaller {
       font-size: $sizeC; }}}
