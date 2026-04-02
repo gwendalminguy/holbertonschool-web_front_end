@@ -1,0 +1,9 @@
+/* Assigns no margin or padding in 'body' tags, and a margin of 10px to all of the 'p' tags inside 'body' tags. */
+$bodyGap: 0px;
+$pGap: 10px;
+
+body {
+  margin: $bodyGap;
+  padding: $bodyGap;
+  p {
+    margin: $pGap; }}
