@@ -1,0 +1,11 @@
+/* Assigns the font size 14px to all 'body' tags, the font size 16px to all 'h1' tags inside 'body' tags and the font size 12px to 'h1' tags of class .smaller inside 'body' tags. */
+$sizeA: 14px;
+$sizeB: 16px;
+$sizeC: 12px;
+
+body {
+  font-size: $sizeA;
+  h1 {
+    font-size: $sizeB;
+    .smaller {
+      font-size: $sizeC; }}}
