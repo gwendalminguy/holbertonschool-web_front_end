@@ -4,5 +4,5 @@ $textColorB: #FF0000;
 
 body {
   color: $textColorA;
-  .red {
+  > .red {
     color: $textColorB; }}
