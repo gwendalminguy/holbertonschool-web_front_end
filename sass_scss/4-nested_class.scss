@@ -1,0 +1,8 @@
+/* Assigns the text color #3D3D3D to elements inside 'body' tags and the text color #FF0000 to any elements of class .red inside 'body' tags. */
+$textColorA: #3D3D3D;
+$textColorB: #FF0000;
+
+body {
+  color: $textColorA;
+  .red {
+    color: $textColorB; }}
