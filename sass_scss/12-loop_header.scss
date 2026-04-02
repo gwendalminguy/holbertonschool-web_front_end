@@ -1,0 +1,4 @@
+/* Creates h* tags, where '*' is the size of the font used (h1: 1px, h2: 2px, etc.) from 'h1' to 'h5'. */
+@for $i from 1 through 5 {
+  h#{$i} {
+    font-size: #{$i}px; }}
