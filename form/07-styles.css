@@ -65,7 +65,7 @@
   --section-footer-align: center;
 
   /** HEADER **/
-  --header-padding: 4rem 0 0;
+  --header-padding: 4rem 0 0.5rem;
 
   /** FOOTER **/
   --footer-padding: 5rem 0 1rem;
@@ -221,6 +221,7 @@ ul.row {
   list-style: none;
   text-align: center;
   display: flex;
+  min-height: 45px;
 }
 
 .nav .nav-item {
@@ -228,6 +229,7 @@ ul.row {
   font-weight: var(--nav-item-font-weight);
   font-size: var(--nav-item-font-size);
   letter-spacing: var(--nav-item-letter-spacing);
+  white-space: nowrap;
 }
 
 .nav .nav-item + .nav-item {
@@ -275,6 +277,10 @@ ul.row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.header-logo {
+  margin-bottom: 1rem;
 }
 
 /* Footer
@@ -820,7 +826,7 @@ textarea:valid:not(:placeholder-shown) {
 
 .form-search {
   display: block;
-  padding: .5rem 0;
+  padding: .75rem 0;
   position: relative;
 }
 
@@ -842,7 +848,7 @@ textarea:valid:not(:placeholder-shown) {
   display: inline-block;
   color: var(--color-white);
   padding-right: 2rem;
-  height: 3rem;
+  height: 1.5rem;
   border: 0;
   outline: none;
   position: absolute;
