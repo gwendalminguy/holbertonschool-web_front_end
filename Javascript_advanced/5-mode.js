@@ -12,7 +12,7 @@ function main() {
     let screamMode = () => { changeMode(12, "normal", "lowercase", "white", "black") };
 
     const textParagraph = document.createElement("p");
-    textParagraph.textContent = "welcome holberton!";
+    textParagraph.textContent = "Welcome Holberton!";
     document.body.appendChild(textParagraph);
 
     const spookyButton = document.createElement("button");
