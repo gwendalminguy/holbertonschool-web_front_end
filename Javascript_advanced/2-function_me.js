@@ -1,7 +1,7 @@
 function welcomeMessage(fullName) {
-    alert(`Welcome ${fullName}`);
+    return alert(`Welcome ${fullName}`);
 }
 
-let guillaume = welcomeMessage("Guillaume");
-let alex = welcomeMessage("Alex");
-let fred = welcomeMessage("Fred");
+let guillaume = function () { welcomeMessage("Guillaume") };
+let alex = function () { welcomeMessage("Alex") };
+let fred = function () { welcomeMessage("Fred") };
