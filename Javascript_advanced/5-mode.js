@@ -21,12 +21,12 @@ function main() {
     document.body.appendChild(spookyButton);
 
     const darkModeButton = document.createElement("button");
-    darkModeButton.innerHTML = "Dark Mode";
+    darkModeButton.innerHTML = "Dark mode";
     darkModeButton.addEventListener("click", () => { darkMode() });
     document.body.appendChild(darkModeButton);
 
     const screamModeButton = document.createElement("button");
-    screamModeButton.innerHTML = "Scream Mode";
+    screamModeButton.innerHTML = "Scream mode";
     screamModeButton.addEventListener("click", () => { screamMode() });
     document.body.appendChild(screamModeButton);
 }
