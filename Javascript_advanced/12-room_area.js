@@ -6,4 +6,4 @@ let roomDimensions = {
     }
 }
 
-let boundGetArea = roomDimensions.getArea();
+let boundGetArea = roomDimensions.getArea.bind(roomDimensions);
