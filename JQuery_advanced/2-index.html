@@ -7,14 +7,16 @@
         <script type="application/javascript">
             function createFamilyTree() {
                 // Original table content defined in different variables for clarity
-                let header = "<tr><th>Firstname</th><th>Lastname</th></tr>";
+                let header = "<thead><tr><th>Firstname</th><th>Lastname</th></tr></thead>";
 
                 let rowA = "<tr><td>Guillaume</td><td>Salva</td></tr>";
                 let rowB = "<tr><td>Paulette</td><td>Salva</td></tr>";
                 let rowC = "<tr><td>Antoine</td><td>Salva</td></tr>";
 
+                let body = `<tbody>${rowA}${rowB}${rowC}</tbody>`
+
                 // jQuery object creation from a single template string
-                let $table = $(`<table>${header}${rowA}${rowB}${rowC}</table>`);
+                let $table = $(`<table>${header}${body}</table>`);
 
                 $("body").append($table);
             }
