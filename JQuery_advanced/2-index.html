@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Task 0</title>
+        <script src="https://code.jquery.com/jquery-4.0.0.slim.min.js" integrity="sha256-8DGpv13HIm+5iDNWw1XqxgFB4mj+yOKFNb+tHBZOowc=" crossorigin="anonymous"></script>
+        <script type="application/javascript">
+            function createFamilyTree() {
+                // Original table content defined in different variables for clarity
+                let header = "<tr><th>Firstname</th><th>Lastname</th></tr>";
+
+                let rowA = "<tr><td>Guillaume</td><td>Salva</td></tr>";
+                let rowB = "<tr><td>Paulette</td><td>Salva</td></tr>";
+                let rowC = "<tr><td>Antoine</td><td>Salva</td></tr>";
+
+                // jQuery object creation from a single template string
+                let $table = $(`<table>${header}${rowA}${rowB}${rowC}</table>`);
+
+                $("body").append($table);
+            }
+
+            $(document).ready( createFamilyTree );
+        </script>
+    </head>
+
+    <body>
+    </body>
+</html>
