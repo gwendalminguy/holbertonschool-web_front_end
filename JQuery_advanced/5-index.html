@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Task 0</title>
+        <script src="https://code.jquery.com/jquery-4.0.0.slim.min.js" integrity="sha256-8DGpv13HIm+5iDNWw1XqxgFB4mj+yOKFNb+tHBZOowc=" crossorigin="anonymous"></script>
+        <script type="application/javascript">
+            function createFamilyTree() {
+                // Creation of the table header
+                let $header = $("<thead>")
+                    .append($("<tr>")
+                        .append($("<th>").text("Firstname"))
+                        .append($("<th>").text("Lastname"))
+                    );
+
+                // Creation of the table body
+                let $body = $("<tbody>");
+
+                // Creation of the full table
+                let $table = $("<table>")
+                    .append($header)
+                    .append($body);
+
+                $("body").append($table);
+            }
+
+            function addNewMember(firstName, lastName) {
+                let $body = $("tbody");
+
+                // Removal behavior
+                let $button = $("<td>")
+                    .text("(x)")
+                    .css("background-color", "orange")
+                    .on("click", function() {
+                        $(this).parent().remove();
+                    });
+
+                // Row construction
+                let $content = $("<tr>")
+                    .append($("<td>").text(firstName))
+                    .append($("<td>").text(lastName))
+                    .append($button);
+
+                $body.append($content);
+            }
+
+            $(document).ready( function() {
+                createFamilyTree();
+                addNewMember("Guillaume", "Salva");
+                addNewMember("Arielle", "Snizt");
+                addNewMember("Fanette", "Snizt");
+                addNewMember("Gerard", "Snizt");
+                addNewMember("Victor", "Salva");
+            });
+        </script>
+    </head>
+
+    <body>
+    </body>
+</html>
