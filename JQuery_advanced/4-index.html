@@ -44,8 +44,10 @@
                 $("tbody").html($body);
             }
 
-            $(document).ready( createFamilyTree );
-            $(document).ready( replaceFamilyTree );
+            $(document).ready( function() {
+                createFamilyTree();
+                replaceFamilyTree();
+            });
         </script>
     </head>
 
