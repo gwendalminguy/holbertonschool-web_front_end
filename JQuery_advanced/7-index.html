@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Task 0</title>
+        <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+        <script type="application/javascript">
+            function createSearchForm() {
+                let $input = $("<input>").attr({type: "text"});
+                let $submit = $("<input>").attr({type: "submit"}).on("click", function() {
+                    queryWikipedia($input.val());
+                });
+
+                $("body").append($input);
+                $("body").append($submit);
+                $("body").append($("<ul>"));
+            }
+
+            function addNewArticle(id, title, snippet) {
+                let $list = $("ul");
+                let $element = $("<li>");
+
+                $element.append($("<p>").append($(`<span>${id} - <b>${title}</b></span>`)));
+                $element.append($("<p>").html(snippet));
+
+                $list.append($element);
+            }
+
+            function queryWikipedia(search) {
+                const data = {
+                    action: "query",
+                    list: "search",
+                    srsearch: search,
+                    format: "json",
+                    origin: "*"
+                }
+
+                $.ajax({
+                    method: "GET",
+                    url: "https://en.wikipedia.org/w/api.php",
+                    data: data
+                }).done(function(response) {
+                    response.query.search.forEach(article => {
+                        addNewArticle(article.pageid, article.title, article.snippet);
+                    });
+                }).fail(function(error) {
+                    console.log(error);
+                });
+            }
+
+            $(document).ready( function() {
+                createSearchForm();
+            });
+        </script>
+    </head>
+
+    <body>
+    </body>
+</html>
