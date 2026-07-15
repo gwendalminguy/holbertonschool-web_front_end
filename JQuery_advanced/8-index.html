@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Task 0</title>
+        <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+        <script type="application/javascript">
+            // Create global variable to keep search query accessible
+            let currentSearch = "";
+
+            function createSearchForm() {
+                let $input = $("<input>").attr({type: "text"});
+                let $submit = $("<input>").attr({type: "submit"}).on("click", function() {
+                    // Update search query value
+                    currentSearch = $input.val();
+
+                    queryWikipedia(currentSearch);
+                });
+
+                // Build search form
+                $("body").append($input);
+                $("body").append($submit);
+
+                // Build results section
+                $("body").append($("<ul>"));
+                $("body").append($("<ul>")
+                    .attr({"id": "pagination"})
+                    .css({"list-style-type": "none"})
+                );
+            }
+
+            function addNewArticle(id, title, snippet) {
+                let $list = $("ul");
+                let $element = $("<li>");
+
+                // Create article with id, title and snippet
+                $element.append($("<p>").append($(`<span>${id} - <b>${title}</b></span>`)));
+                $element.append($("<p>").html(snippet));
+
+                $list.append($element);
+            }
+
+            function buildPagination(numberOfItems, itemsPerPage, currentOffset) {
+                let numberOfPages = Math.ceil(numberOfItems / itemsPerPage);
+                let $pagination = $("#pagination");
+
+                // Erase current pagination list
+                $pagination.empty();
+
+                // Rebuild pagination
+                for (let i = 1 ; i <= numberOfPages ; i++) {
+                    let $item = $("<li>").text(i).css({
+                        "cursor": "pointer",
+                        "padding-left": "10px",
+                        "display": "inline-block",
+                        "margin": 0
+                    }).on("click", function() {
+                        queryWikipedia(currentSearch, i - 1);
+                    });
+
+                    // Set current page in bold
+                    if (i === currentOffset + 1) {
+                        $item.css({"font-weight": "bold"});
+                    }
+
+                    $pagination.append($item);
+                }
+            }
+
+            function queryWikipedia(search, offset = 0) {
+                const data = {
+                    action: "query",
+                    list: "search",
+                    srsearch: search,
+                    format: "json",
+                    sroffset: offset,
+                    origin: "*"
+                }
+
+                $.ajax({
+                    method: "GET",
+                    url: "https://en.wikipedia.org/w/api.php",
+                    data: data
+                }).done(function(response) {
+                    let results = response.query.search;
+                    let totalItems = response.query.searchinfo.totalhits;
+                    let $list = $("ul");
+                
+                    // Erase current results list
+                    $list.empty();
+                    
+                    results.forEach(article => {
+                        addNewArticle(article.pageid, article.title, article.snippet);
+                    });
+
+                    buildPagination(numberOfItems=totalItems, itemsPerPage=10, currentOffset=offset);
+                }).fail(function(error) {
+                    console.error(error);
+                });
+            }
+
+            $(document).ready(function() {
+                createSearchForm();
+            });
+        </script>
+    </head>
+
+    <body>
+    </body>
+</html>
