@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Task 0</title>
+        <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+        <script type="application/javascript">
+            function addPostRow(data) {
+                $("body").append($("<p>").append($("<span>").text(`Post created with id ${data.id}, title: ${data.title}, author: ${data.author}`)));
+            }
+
+            function listPosts() {
+                $.get("http://localhost:3000/posts")
+                    .done(function(response) {
+                        response.forEach(item => {
+                            addPostRow(item);
+                        });
+                    }).fail(function(error) {
+                        console.error(error);
+                        alert("Server Error");
+                    });
+            }
+
+            $(document).ready(function() {
+                listPosts();
+            });
+        </script>
+    </head>
+
+    <body>
+    </body>
+</html>
