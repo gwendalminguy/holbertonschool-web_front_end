@@ -1,0 +1,139 @@
+{
+  "posts": [
+    {
+      "title": "Getting Started with json-server",
+      "author": "Alice Martin",
+      "id": 1
+    },
+    {
+      "title": "Understanding REST APIs",
+      "author": "Thomas Bernard",
+      "id": 2
+    },
+    {
+      "title": "10 JavaScript Tips Every Developer Should Know",
+      "author": "Emma Wilson",
+      "id": 3
+    },
+    {
+      "title": "Building a Todo App with React",
+      "author": "Lucas Dubois",
+      "id": 4
+    },
+    {
+      "title": "Introduction to Docker Containers",
+      "author": "Sophie Laurent",
+      "id": 5
+    },
+    {
+      "title": "Why TypeScript Improves Code Quality",
+      "author": "Noah Garcia",
+      "id": 6
+    },
+    {
+      "title": "Debugging Common Node.js Errors",
+      "author": "Camille Petit",
+      "id": 7
+    },
+    {
+      "title": "A Beginner's Guide to SQL",
+      "author": "Olivia Martin",
+      "id": 8
+    },
+    {
+      "title": "Deploying Applications with Docker Compose",
+      "author": "Nathan Leroy",
+      "id": 9
+    },
+    {
+      "title": "Writing Clean and Maintainable Code",
+      "author": "Chloé Moreau",
+      "id": 10
+    },
+    {
+      "author": "test",
+      "title": "test",
+      "id": 11
+    },
+    {
+      "author": "test",
+      "title": "test",
+      "id": 12
+    },
+    {
+      "author": "efce",
+      "title": "ce",
+      "id": 13
+    },
+    {
+      "author": "test",
+      "title": "test",
+      "id": 14
+    },
+    {
+      "author": "test",
+      "title": "test",
+      "id": 15
+    },
+    {
+      "author": "test",
+      "title": "test",
+      "id": 16
+    },
+    {
+      "author": "fevce",
+      "title": "cecfvc",
+      "id": 17
+    },
+    {
+      "author": "fev",
+      "title": "rg vrg",
+      "id": 18
+    },
+    {
+      "author": "efcer",
+      "title": "c'c'",
+      "id": 19
+    },
+    {
+      "author": "cef",
+      "title": "cf",
+      "id": 20
+    },
+    {
+      "author": "test",
+      "title": "test",
+      "id": 21
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "Excellent introduction, it helped me get started quickly.",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "The REST examples were very clear.",
+      "postId": 2
+    },
+    {
+      "id": 3,
+      "body": "I especially liked the section about async functions.",
+      "postId": 3
+    },
+    {
+      "id": 4,
+      "body": "This saved me a lot of debugging time!",
+      "postId": 7
+    },
+    {
+      "id": 5,
+      "body": "Looking forward to a follow-up article.",
+      "postId": 10
+    }
+  ],
+  "profile": {
+    "name": "gwendalminguy"
+  }
+}
