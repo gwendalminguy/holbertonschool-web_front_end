@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Task 11</title>
+        <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+        <script type="application/javascript">
+            //
+            // IMPORTANT
+            //
+            // When using VS Code extensions such as Live Server or Live Preview,
+            // the page may reload after a POST or DELETE request to json-server.
+            // This happens because json-server modifies `db.json`, and the extension
+            // detects this file change and triggers a browser reload.
+            //
+            // This is unrelated to the form submission logic.
+            // To avoid it, either serve the page with another static server
+            // (`python3 -m http.server`) or configure Live Server to ignore `db.json`.
+            //
+            function addPostRow(data) {
+                $("body").append($("<p>").attr({id: `row-${data.id}`})
+                    .append($("<span>").text("(delete)").on("click", function() {deletePost(data.id); }))
+                    .append($("<span>").text(`Post created with id ${data.id}, title: ${data.title}, author: ${data.author}`))
+                );
+            }
+
+            function deletePost(id) {
+                $.ajax({
+                    method: "DELETE",
+                    url: `http://localhost:3000/posts/${id}`
+                }).done(function(response) {
+                    $(`#row-${id}`).remove()
+                }).fail(function(error) {
+                    console.error(error);
+                    alert("Post was not deleted");
+                });
+            }
+
+            function listPosts() {
+                $.get("http://localhost:3000/posts")
+                    .done(function(response) {
+                        response.forEach(item => {
+                            addPostRow(item);
+                        });
+                    }).fail(function(error) {
+                        console.error(error);
+                        alert("Server Error");
+                    });
+            }
+
+            function buildForm() {
+                let $form = $("<form>");
+                $("body").append($form);
+
+                // Add author input
+                $form.append($("<div>")
+                    .append($("<label>").attr({for: "author"}).text("Author"))
+                    .append($("<input>").attr({id: "author", type: "text"}))
+                );
+
+                // Add title input
+                $form.append($("<div>")
+                    .append($("<label>").attr({for: "title"}).text("Title"))
+                    .append($("<textarea>").attr({id: "title"}))
+                );
+
+                // Add submit input
+                $form.append($("<input>").attr({type: "submit"}));
+
+                // Add submit behavior
+                $form.on("submit", function(event) {
+                    event.preventDefault();
+                    sendForm();
+                });
+            }
+
+            function sendForm() {
+                if ($(".info").length === 0) { // Display information only if not already displayed
+                    $("form").after($("<p>").attr({class: "info"}).text("About to send the query to the API"));
+                }
+
+                let author = $("#author").val();
+                let title = $("#title").val();
+
+                let data = {
+                    author: author,
+                    title: title
+                };
+
+                // Make request
+                $.post("http://localhost:3000/posts", data)
+                    .done(function(response) {
+                        addPostRow(response);
+                        setTimeout(function() { $(".info").remove() }, 750);  // Remove information display
+                    }).fail(function(error) {
+                        console.error(error);
+                        alert("Server Error");
+                    });
+            }
+
+            $(document).ready(function() {
+                console.log("Ready Executed");
+                listPosts();
+                buildForm();
+            });
+        </script>
+    </head>
+
+    <body>
+    </body>
+</html>
