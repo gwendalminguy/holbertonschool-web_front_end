@@ -60,7 +60,9 @@
             }
 
             function sendForm() {
-                $("form").after($("<p>").text("About to send the query to the API"));
+                if ($(".info").length === 0) { // Display information only if not already displayed
+                    $("form").after($("<p>").attr({class: "info"}).text("About to send the query to the API"));
+                }
 
                 let author = $("#author").val();
                 let title = $("#title").val();
@@ -74,6 +76,7 @@
                 $.post("http://localhost:3000/posts", data)
                     .done(function(response) {
                         addPostRow(response);
+                        setTimeout(function() { $(".info").remove() }, 750); // Remove information display
                     }).fail(function(error) {
                         console.error(error);
                         alert("Server Error");
