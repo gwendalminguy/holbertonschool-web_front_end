@@ -60,11 +60,11 @@
                         "display": "inline-block",
                         "margin": 0
                     }).on("click", function() {
-                        queryWikipedia(currentSearch, i - 1);
+                        queryWikipedia(currentSearch, (i - 1) * itemsPerPage);
                     });
 
                     // Set current page in bold
-                    if (i === currentOffset + 1) {
+                    if (i - 1 === currentOffset / itemsPerPage) {
                         $item.css({"font-weight": "bold"});
                     }
 
@@ -74,7 +74,6 @@
 
             function displayLoading(loading) {
                 let $list = $("ul").first();
-                console.log($list);
 
                 if (loading) {
                     $list.wrap($("<div>").attr({class: "loading"}));
