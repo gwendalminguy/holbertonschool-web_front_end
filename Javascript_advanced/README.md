@@ -31,3 +31,5 @@ This project is about working with advanced JavaScript concepts.
 * [13-bind_user.js](https://github.com/Gwendal/holbertonschool-web_front_end/tree/main/Javascript_advanced/13-bind_user.js), a script displaying a welcome message using closure and binding.
 
 * [14-wikipedia.js](https://github.com/Gwendal/holbertonschool-web_front_end/tree/main/Javascript_advanced/14-wikipedia.js), a script querying Wikipedia and displaying the result using a callback function.
+
+* [100-stock.js](https://github.com/Gwendal/holbertonschool-web_front_end/tree/main/Javascript_advanced/14-stock.js), a script processing user input and checking product stock to call the right callback function.
