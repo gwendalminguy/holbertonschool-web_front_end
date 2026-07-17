@@ -2,9 +2,9 @@
 
 This project is about learning to use jQuery.
 
-* [db.json](https://github.com/Gwendal/holbertonschool-web_front_end/tree/main/JQuery_advanced/db.json)
+* [db.json](https://github.com/Gwendal/holbertonschool-web_front_end/tree/main/JQuery_advanced/db.json), a simple JSON database file.
 
-* [package.json](https://github.com/Gwendal/holbertonschool-web_front_end/tree/main/JQuery_advanced/package.json)
+* [package.json](https://github.com/Gwendal/holbertonschool-web_front_end/tree/main/JQuery_advanced/package.json), the package file.
 
 * [0-index.html](https://github.com/Gwendal/holbertonschool-web_front_end/tree/main/JQuery_advanced/0-index.html), a script loading jQuery and checking its status.
 
