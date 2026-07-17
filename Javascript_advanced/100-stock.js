@@ -4,7 +4,9 @@ let stock = {
 }
 
 function processPayment(itemName) {
-    stock[itemName]--;
+    let normalizedItemName = itemName.toLowerCase();
+
+    stock[normalizedItemName]--;
 
     console.log(`Payment is being processed for item ${itemName}`);
 }
@@ -15,12 +17,12 @@ function processError(itemName) {
 }
 
 function processOrder(itemName, callbackPayment, callbackError) {
-    itemName = itemName.toLowerCase();
+    let normalizedItemName = itemName.toLowerCase();
 
     console.log(`Verifying the stock of ${itemName}`);
 
     // Verify stock and type to call the right callback
-    if (stock[itemName] > 0 && typeof(stock[itemName]) === "number") {
+    if (stock[normalizedItemName] > 0 && typeof(stock[normalizedItemName]) === "number") {
         callbackPayment(itemName);
     } else {
         callbackError(itemName);
