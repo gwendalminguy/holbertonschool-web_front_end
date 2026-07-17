@@ -4,7 +4,7 @@ let stock = {
 }
 
 function processPayment(itemName) {
-    let normalizedItemName = itemName.toLowerCase();
+    let normalizedItemName = itemName.toLowerCase().trim();
 
     stock[normalizedItemName]--;
 
@@ -17,7 +17,7 @@ function processError(itemName) {
 }
 
 function processOrder(itemName, callbackPayment, callbackError) {
-    let normalizedItemName = itemName.toLowerCase();
+    let normalizedItemName = itemName.toLowerCase().trim();
 
     console.log(`Verifying the stock of ${itemName}`);
 
