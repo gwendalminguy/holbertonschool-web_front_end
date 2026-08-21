@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Cookies Management</title>
+        <meta name="description" content="Basic form to practice cookies management.">
+        <link rel='stylesheet' href='0-styles.css'>
+        <script type="application/javascript">
+            function setCookies() {
+                const firstname = document.getElementById("firstname").value;
+                const email = document.getElementById("email").value;
+
+                localStorage.setItem("firstname", firstname);
+                localStorage.setItem("email", email);
+            }
+
+            function showCookies() {
+                const firstname = localStorage.getItem("firstname");
+                const email = localStorage.getItem("email");
+
+                const p = document.createElement("p");
+
+                p.innerHTML = `Cookies: ${firstname} ${email}`;
+
+                document.body.appendChild(p);
+            }
+        </script>
+    </head>
+    <body>
+        <main>
+            <h1>Cookies Management</h1>
+
+            <h2>Login</h2>
+            <input type="text" id="firstname" placeholder="Firstname">
+            <input type="text" id="email" placeholder="Email">
+            <button type="button" onclick="setCookies()">Log me in</button>
+
+            <h2>Cookies</h2>
+            <button type="button" onclick="showCookies()">Show the cookies</button>
+        </main>
+    </body>
+</html>
