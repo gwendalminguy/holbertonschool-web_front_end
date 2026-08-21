@@ -8,23 +8,25 @@
         <script type="application/javascript">
             function setCookies() {
                 // Retrieve values of 'firstname' and 'email' inputs
-                // and store them in local storage as cookies.
+                // and store them as cookies in the browser.
                 const firstname = document.getElementById("firstname").value;
                 const email = document.getElementById("email").value;
 
-                localStorage.setItem("firstname", firstname);
-                localStorage.setItem("email", email);
+                document.cookie = `firstname=${firstname}`;
+                document.cookie = `email=${email}`;
             }
 
             function showCookies() {
                 // Retrieve the value of each cookie
                 // and append them to the body in a 'p' element.
-                const firstname = localStorage.getItem("firstname");
-                const email = localStorage.getItem("email");
+                const cookies = document.cookie.split("; ");
+
+                const firstname = cookies.find(cookie => cookie.startsWith("firstname="));
+                const email = cookies.find(cookie => cookie.startsWith("email="));
 
                 const p = document.createElement("p");
 
-                p.innerHTML = `Cookies: firstname=${firstname} ; email=${email}`;
+                p.innerHTML = `Cookies: ${firstname} ; ${email}`;
 
                 document.body.appendChild(p);
             }
