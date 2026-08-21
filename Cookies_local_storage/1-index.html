@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Cookies Management</title>
+        <meta name="description" content="Basic form to practice cookies management.">
+        <script type="application/javascript">
+            function setCookies() {
+                // Retrieve values of 'firstname' and 'email' inputs
+                // and store them as cookies in the browser with expiration.
+                const firstname = document.getElementById("firstname").value;
+                const email = document.getElementById("email").value;
+
+                // Set a 10 days expiration.
+                const date = new Date();
+                date.setTime(date.getTime() + 10 * 24 * 3600 * 1000);
+                const expires = "expires=" + date.toUTCString();
+
+                document.cookie = `firstname=${firstname};${expires}`;
+                document.cookie = `email=${email};${expires}`;
+            }
+
+            function showCookies() {
+                // Retrieve the value of each cookie
+                // and append them to the body in a 'p' element.
+                const cookies = document.cookie.split("; ");
+
+                const firstname = cookies.find(cookie => cookie.startsWith("firstname="));
+                const email = cookies.find(cookie => cookie.startsWith("email="));
+
+                const p = document.createElement("p");
+
+                p.innerHTML = `Cookies: ${firstname} ; ${email}`;
+
+                document.body.appendChild(p);
+            }
+        </script>
+    </head>
+    <body>
+        <main>
+            <h1>Cookies Management</h1>
+
+            <h2>Login to the website</h2>
+            <input type="text" id="firstname" placeholder="Firstname">
+            <input type="text" id="email" placeholder="Email">
+            <button type="button" onclick="setCookies()">Log me in</button>
+
+            <h2>Cookies</h2>
+            <button type="button" onclick="showCookies()">Show the cookies</button>
+        </main>
+    </body>
+</html>
