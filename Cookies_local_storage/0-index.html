@@ -8,6 +8,8 @@
         <link rel='stylesheet' href='0-styles.css'>
         <script type="application/javascript">
             function setCookies() {
+                // Retrieve values of 'firstname' and 'email' inputs
+                // and store them in local storage as cookies.
                 const firstname = document.getElementById("firstname").value;
                 const email = document.getElementById("email").value;
 
@@ -16,12 +18,13 @@
             }
 
             function showCookies() {
+                // Retrieve
                 const firstname = localStorage.getItem("firstname");
                 const email = localStorage.getItem("email");
 
                 const p = document.createElement("p");
 
-                p.innerHTML = `Cookies: ${firstname} ${email}`;
+                p.innerHTML = `Cookies: firstname=${firstname} ; email=${email}`;
 
                 document.body.appendChild(p);
             }
@@ -31,7 +34,7 @@
         <main>
             <h1>Cookies Management</h1>
 
-            <h2>Login</h2>
+            <h2>Login to the website</h2>
             <input type="text" id="firstname" placeholder="Firstname">
             <input type="text" id="email" placeholder="Email">
             <button type="button" onclick="setCookies()">Log me in</button>
