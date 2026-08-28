@@ -18,7 +18,7 @@
                 const expires = "expires=" + date.toUTCString();
 
                 document.cookie = `firstname=${firstname};${expires}`;
-                // document.cookie = `email=${email};${expires}`;
+                document.cookie = `email=${email};${expires}`;
             }
 
             function getCookie(name) {
