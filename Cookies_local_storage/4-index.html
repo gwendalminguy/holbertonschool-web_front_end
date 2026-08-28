@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Cookies Management</title>
+        <meta name="description" content="Basic form to practice cookies management.">
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.8/dist/js.cookie.min.js"></script>
+
+        <script type="application/javascript">
+            function showForm() {
+                const message = document.getElementById("message");
+                const form = document.getElementById("form");
+
+                // Remove message.
+                if (message) {
+                    message.remove()
+                }
+
+                // Show form.
+                if (form) {
+                    form.hidden = false;
+                }
+            }
+
+            function hideForm() {
+                const form = document.getElementById("form");
+
+                // Hide form.
+                if (form) {
+                    form.hidden = true;
+                }
+            }
+
+            function deleteCookiesAndShowForm() {
+                // Remove cookies by setting their expiration.
+                Cookies.remove('firstname');
+                Cookies.remove('email');
+
+                // Show form.
+                showForm();
+            }
+
+            function showWelcomeMessageOrForm() {
+                const firstname = Cookies.get("firstname");
+                const email = Cookies.get("email");
+
+                // Show form if user not logged in,
+                // otherwise replace body with message.
+                if (!firstname || !email) {
+                    showForm();
+                } else {
+                    // Build logout.
+                    const logout = document.createElement("a");
+                    logout.href = "#";
+                    logout.textContent = "(logout)";
+                    logout.addEventListener("click", deleteCookiesAndShowForm);
+
+                    // Set logout style.
+                    logout.style.fontWeight = "normal";
+                    logout.style.fontStyle = "italic";
+
+                    // Very small, but required by the requirements.
+                    logout.style.fontSize = "10px";
+
+                    // Additional style to match the provided example.
+                    logout.style.textDecoration = "none";
+                    logout.style.color = "inherit";
+
+                    // Build message.
+                    const message = document.createElement("h1");
+                    message.id = "message";
+                    message.textContent = `Welcome ${firstname} `;
+                    message.appendChild(logout);
+
+                    // Append message to body and hide form,
+                    // instead of simply replacing the body,
+                    // since the form would also be removed
+                    // and logout wouldn't work as expected...
+                    document.body.appendChild(message);
+                    hideForm();
+                }
+            }
+
+            function setCookiesAndShowWelcomeMessage() {
+                // Retrieve values of 'firstname' and 'email' inputs
+                // and store them as cookies in the browser with expiration.
+                const firstname = document.getElementById("firstname").value;
+                const email = document.getElementById("email").value;
+
+                Cookies.set("firstname", firstname, { expires: 10 });
+                Cookies.set("email", email, { expires: 10 });
+
+                showWelcomeMessageOrForm();
+            }
+        </script>
+    </head>
+    <body>
+        <div id="form">
+            <h2>Login to the website</h2>
+            <input type="text" id="firstname" placeholder="Firstname">
+            <input type="text" id="email" placeholder="Email">
+            <button type="button" onclick="setCookiesAndShowWelcomeMessage()">Log me in</button>
+        </div>
+    </body>
+</html>
