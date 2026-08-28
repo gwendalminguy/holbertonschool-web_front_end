@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Local Storage Management</title>
+        <meta name="description" content="Basic shopping cart to practice local storage management.">
+
+        <script type="application/javascript">
+            const availableItems = ["Shampoo", "Soap", "Sponge", "Water"];
+
+            document.addEventListener("DOMContentLoaded", (event) => {
+                if (typeof(Storage) !== "undefined") {
+                    createStore();
+                    displayCart();
+                } else {
+                    alert("Sorry, your browser does not support Web storage. Try again with a better one");
+                }
+            });
+
+            function addItemToCart(item) {
+                console.log("Adding:", item);
+                localStorage.setItem(item, true);
+            }
+
+            function createStore() {
+                const list = document.createElement("ul");
+                document.body.appendChild(list);
+
+                for (let i = 0 ; i < availableItems.length ; i++) {
+                    let item = document.createElement("li");
+
+                    item.textContent = availableItems[i];
+                    item.addEventListener("click", () => {
+                        addItemToCart(item.textContent)
+                    });
+
+                    list.append(item);
+                }
+            }
+
+            function displayCart() {
+                const storageLength = localStorage.length;
+
+                if (storageLength) {
+                    const message = document.createElement("p");
+
+                    message.textContent = `You previously had ${storageLength} items in your cart`;
+                    document.body.appendChild(message);
+                }
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
