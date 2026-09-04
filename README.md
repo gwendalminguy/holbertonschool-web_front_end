@@ -23,3 +23,5 @@ This repository focuses on front-end web development concepts.
 * [JavaScript Advanced](https://github.com/gwendalminguy/holbertonschool-web_front_end/blob/main/Javascript_advanced), a project to learn about JavaScript.
 
 * [jQuery Advanced](https://github.com/gwendalminguy/holbertonschool-web_front_end/blob/main/JQuery_advanced), a project to learn about using jQuery.
+
+* [Cookies - Local Storage](https://github.com/gwendalminguy/holbertonschool-web_front_end/blob/main/Cookies_local_storage), a project to learn about using cookies and local/session storage.
